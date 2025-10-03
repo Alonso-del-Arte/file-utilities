@@ -1,0 +1,8 @@
+*.class
+
+nbproject/private/
+
+src/draft/
+src/secrets/
+test/draft/
+test/secrets/
