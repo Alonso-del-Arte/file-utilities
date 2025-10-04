@@ -26,4 +26,8 @@ import java.io.FileNotFoundException;
  */
 public class FolderComparer {
     
+    public FolderComparer(File dirA, File dirB) {
+        //
+    }
+    
 }

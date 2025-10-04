@@ -26,4 +26,8 @@ import java.io.FileNotFoundException;
  */
 public class FileContentsComparer {
     
+    public FileContentsComparer(File a, File b) {
+        //
+    }
+    
 }
