@@ -31,7 +31,7 @@ public class RandomProvider {
     }
     
     public static int nextInt(int bound) {
-        return Integer.MAX_VALUE;
+        return RANDOM.nextInt(bound);
     }
     
 }
