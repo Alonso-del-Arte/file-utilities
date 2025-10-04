@@ -16,6 +16,9 @@
  */
 package randomness;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -25,13 +28,19 @@ import org.testng.annotations.Test;
  */
 public class RandomProviderNGTest {
     
-    public RandomProviderNGTest() {
-    }
-
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void testNextInt() {
+        System.out.println("nextInt");
+        int capacity = 2048;
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            numbers.add(RandomProvider.nextInt());
+        }
+        int expected = 15 * capacity / 16;
+        int actual = numbers.size();
+        String msg = "Expected at least " + expected
+                + " distinct integers out of " + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;    }
     
 }
