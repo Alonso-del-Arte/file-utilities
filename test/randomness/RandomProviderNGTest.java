@@ -68,5 +68,22 @@ public class RandomProviderNGTest {
         System.out.println(msg);
         assert actual >= expected : msg;
     }
+    
+    @Test
+    public void testNextASCIIChar() {
+        System.out.println("nextASCIIChar");
+        int expected = 96;
+        Set<Character> characters = new HashSet<>(expected);
+        for (int i = 0; i < 2048; i++) {
+            char ch = RandomProvider.nextASCIIChar();
+            String msg = "Pseudorandom character '" + ch
+                    + "' should be an ASCII character";
+            assert ch >= ' ' : msg;
+            assert ch < '\u0080' : msg;
+            characters.add(ch);
+        }
+        int actual = characters.size();
+        assertEquals(actual, expected);
+    }
 
 }
