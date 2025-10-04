@@ -24,8 +24,10 @@ import java.util.Random;
  */
 public class RandomProvider {
     
+    private static final Random RANDOM = new Random();
+    
     public static int nextInt() {
-        return Integer.MIN_VALUE;
+        return RANDOM.nextInt();
     }
     
     public static int nextInt(int bound) {
