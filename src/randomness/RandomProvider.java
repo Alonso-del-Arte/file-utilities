@@ -34,4 +34,9 @@ public class RandomProvider {
         return RANDOM.nextInt(bound);
     }
     
+    // TODO: Write tests for this
+    public static char nextASCIIChar() {
+        return '?';
+    }
+    
 }
