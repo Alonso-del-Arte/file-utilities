@@ -17,16 +17,19 @@
 package randomness;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
 /**
- *
- * @author al
+ * Tests of the RandomProvider class.
+ * @author Alonso del Arte
  */
 public class RandomProviderNGTest {
+    
+    private static final Random RANDOM = new Random(System.currentTimeMillis());
     
     @Test
     public void testNextInt() {
@@ -41,6 +44,29 @@ public class RandomProviderNGTest {
         String msg = "Expected at least " + expected
                 + " distinct integers out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;    }
+        assert actual >= expected : msg;
+    }
     
+    @Test
+    public void testNextIntBounded() {
+        int capacity = 2048;
+        int bound = capacity - RANDOM.nextInt(128);
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            int number = RandomProvider.nextInt(bound);
+            String msg = "Pseudorandom number " + number
+                    + " should be at least 0 but less than " + bound;
+            assert number >= 0 : msg;
+            assert number < bound : msg;
+            numbers.add(number);
+        }
+        int expected = capacity / 2;
+        int actual = numbers.size();
+        String msg = "Expected at least " + expected
+                + " distinct integers in the range 0 to " + (bound - 1)
+                + " out of " + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;
+    }
+
 }
