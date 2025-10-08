@@ -146,5 +146,22 @@ public class RandomProviderNGTest {
             assert ch < '\u007F' : msg;
         }
     }
+    
+    @Test
+    public void testNextASCIILine() {
+        System.out.println("nextASCIILine");
+        int capacity = 128;
+        Set<String> lines = new HashSet<>(capacity);
+        int length = RANDOM.nextInt(32) + 8;
+        for (int i = 0; i < capacity; i++) {
+            lines.add(RandomProvider.nextASCIILine(length));
+        }
+        int expected = 15 * capacity / 16;
+        int actual = lines.size();
+        String msg = "Expected at least " + expected + " distinct lines out of " 
+                + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;
+    }
 
 }
