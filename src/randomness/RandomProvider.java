@@ -36,7 +36,7 @@ public class RandomProvider {
     }
     
     public static char nextASCIIChar() {
-        return (char) (RANDOM.nextInt(95) + 32);
+        return 'x';// (char) (RANDOM.nextInt(95) + 32);
     }
     
     public static String nextASCIILine(int length) {
