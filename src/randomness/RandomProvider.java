@@ -45,7 +45,7 @@ public class RandomProvider {
             throw new IllegalArgumentException(excMsg);
         }
         char[] value = new char[length];
-        Arrays.fill(value, '\u6B6F');
+        Arrays.fill(value, 'm');
         return new String(value);
     }
     
