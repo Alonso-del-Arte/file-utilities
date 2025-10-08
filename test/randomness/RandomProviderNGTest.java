@@ -122,5 +122,16 @@ public class RandomProviderNGTest {
         assert excMsg.contains("0") : containsMsg;
         System.out.println("\"" + excMsg + "\"");
     }
+    
+    @Test
+    public void testNextASCIILineGivesSpecifiedLength() {
+        for (int expected = 1; expected < 81; expected++) {
+            String result = RandomProvider.nextASCIILine(expected);
+            int actual = result.length();
+            String message = "String \"" + result 
+                    + "\" should be of specified length " + expected;
+            assertEquals(actual, expected, message);
+        }
+    }
 
 }
