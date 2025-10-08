@@ -20,6 +20,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static org.testframe.api.Asserters.assertThrows;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -84,6 +86,24 @@ public class RandomProviderNGTest {
         }
         int actual = characters.size();
         assertEquals(actual, expected);
+    }
+    
+    @Test
+    public void testNextASCIILineRejectsNegativeLength() {
+        int length = -RANDOM.nextInt(1024) - 1;
+        String msg = "Length " + length + " should have caused an exception";
+        Throwable t = assertThrows(() -> {
+            String badResult = RandomProvider.nextASCIILine(length);
+            System.out.println(msg + ", not given result \"" + badResult 
+                    + "\"");
+        }, IllegalArgumentException.class, msg);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Exception message should not be null";
+        assert !excMsg.isBlank() : "Exception message should not be blank";
+        String numStr = Integer.toString(length);
+        String containsMsg = "Exception message should contain \"" + numStr + "\"";
+        assert excMsg.contains(numStr) : containsMsg;
+        System.out.println("\"" + excMsg + "\"");
     }
 
 }
