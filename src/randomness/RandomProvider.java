@@ -16,6 +16,7 @@
  */
 package randomness;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -38,13 +39,14 @@ public class RandomProvider {
         return (char) (RANDOM.nextInt(96) + 32);
     }
     
-    // TODO: Write tests for this
     public static String nextASCIILine(int length) {
         if (length < 1) {
             String excMsg = "Length " + length + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
-        return "SORRY, NOT IMPLEMENTED YET";
+        char[] value = new char[length];
+        Arrays.fill(value, '\u6B6F');
+        return new String(value);
     }
     
 }
