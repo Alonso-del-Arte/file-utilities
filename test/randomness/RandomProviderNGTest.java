@@ -101,8 +101,25 @@ public class RandomProviderNGTest {
         assert excMsg != null : "Exception message should not be null";
         assert !excMsg.isBlank() : "Exception message should not be blank";
         String numStr = Integer.toString(length);
-        String containsMsg = "Exception message should contain \"" + numStr + "\"";
+        String containsMsg = "Exception message should contain \"" + numStr 
+                + "\"";
         assert excMsg.contains(numStr) : containsMsg;
+        System.out.println("\"" + excMsg + "\"");
+    }
+
+    @Test
+    public void testNextASCIILineRejectsLengthZero() {
+        String msg = "Length 0 should have caused an exception";
+        Throwable t = assertThrows(() -> {
+            String badResult = RandomProvider.nextASCIILine(0);
+            System.out.println(msg + ", not given result \"" + badResult 
+                    + "\"");
+        }, IllegalArgumentException.class, msg);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Exception message should not be null";
+        assert !excMsg.isBlank() : "Exception message should not be blank";
+        String containsMsg = "Exception message should contain \"0\"";
+        assert excMsg.contains("0") : containsMsg;
         System.out.println("\"" + excMsg + "\"");
     }
 
