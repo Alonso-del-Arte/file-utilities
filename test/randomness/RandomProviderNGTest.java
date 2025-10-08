@@ -133,5 +133,18 @@ public class RandomProviderNGTest {
             assertEquals(actual, expected, message);
         }
     }
+    
+    @Test
+    public void testNextASCIILineGivesStringWithASCIIPrintingCharsOnly() {
+        int length = RANDOM.nextInt(16) + 4;
+        String result = RandomProvider.nextASCIILine(length);
+        char[] characters = result.toCharArray();
+        for (char ch : characters) {
+            String msg = "Character '" + ch 
+                    + "' should be a printing ASCII character";
+            assert ch >= ' ' : msg;
+            assert ch < '\u007F' : msg;
+        }
+    }
 
 }
