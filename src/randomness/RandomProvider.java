@@ -38,4 +38,9 @@ public class RandomProvider {
         return (char) (RANDOM.nextInt(96) + 32);
     }
     
+    // TODO: Write tests for this
+    public static String nextASCIILine(int length) {
+        return "SORRY, NOT IMPLEMENTED YET";
+    }
+    
 }
