@@ -36,7 +36,7 @@ public class RandomProvider {
     }
     
     public static char nextASCIIChar() {
-        return (char) (RANDOM.nextInt(96) + 32);
+        return (char) (RANDOM.nextInt(95) + 32);
     }
     
     public static String nextASCIILine(int length) {
@@ -45,7 +45,9 @@ public class RandomProvider {
             throw new IllegalArgumentException(excMsg);
         }
         char[] value = new char[length];
-        Arrays.fill(value, 'm');
+        for (int i = 0; i < length; i++) {
+            value[i] = nextASCIIChar();
+        }
         return new String(value);
     }
     
