@@ -30,4 +30,16 @@ import randomness.RandomProvider;
  */
 public class MockClipboardTest {
     
+    @Test
+    public void testGetName() {
+        System.out.println("getName");
+        int threshold = RandomProvider.nextInt(16) + 4;
+        for (int i = 1; i < threshold; i++) {
+            Clipboard instance = new MockClipboard();
+            String expected = "Mock Clipboard #" + i;
+            String actual = instance.getName();
+            assertEquals(actual, expected);
+        }
+    }
+    
 }
