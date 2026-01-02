@@ -35,8 +35,13 @@ public class TestImagePanel {
     String getString() {
         return "SORRY, NOT IMPLEMENTED YET";
     }
+    
+    public TestImagePanel(char ch) {
+        //
+    }
 
     public TestImagePanel(String s) {
+        //
     }
     
 }
