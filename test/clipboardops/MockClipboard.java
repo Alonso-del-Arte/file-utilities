@@ -28,7 +28,7 @@ public class MockClipboard extends Clipboard {
     private static int instantiationCount = 0;
     
     public MockClipboard() {
-        super("Mock Clipboard #");
+        super("Mock Clipboard #" + (++instantiationCount));
     }
     
 }
