@@ -29,10 +29,21 @@ import javax.swing.WindowConstants;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
+import randomness.RandomProvider;
+
 /**
  * Tests of the TestImagePanel class.
  * @author Alonso del Arte
  */
 public class TestImagePanelTest {
+    
+    @Test
+    public void testGetString() {
+        System.out.println("getString");
+        String expected = "EXAMPLE " + RandomProvider.nextInt();
+        TestImagePanel instance = new TestImagePanel(expected);
+        String actual = instance.getString();
+        assertEquals(actual, expected);
+    }
     
 }
