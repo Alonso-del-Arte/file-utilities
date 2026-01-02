@@ -35,6 +35,11 @@ public class RandomProvider {
         return RANDOM.nextInt(bound);
     }
     
+    // TODO: Write tests for this
+    public static int nextInt(int origin, int bound) {
+        return Integer.MIN_VALUE;
+    }
+    
     public static char nextASCIIChar() {
         return (char) (RANDOM.nextInt(95) + 32);
     }
