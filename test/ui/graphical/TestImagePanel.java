@@ -30,7 +30,7 @@ import javax.swing.WindowConstants;
  *
  * @author Alonso del Arte
  */
-public class TestImagePanel {
+public class TestImagePanel extends JPanel {
     
     String getString() {
         return "SORRY, NOT IMPLEMENTED YET";
