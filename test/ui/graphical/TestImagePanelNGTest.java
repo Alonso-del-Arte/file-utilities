@@ -15,9 +15,16 @@
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple 
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-package clipboardops;
+package ui.graphical;
 
-import java.awt.datatransfer.Clipboard;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -25,21 +32,18 @@ import org.testng.annotations.Test;
 import randomness.RandomProvider;
 
 /**
- * Tests of the MockClipboard class.
+ * Tests of the TestImagePanel class.
  * @author Alonso del Arte
  */
-public class MockClipboardTest {
+public class TestImagePanelNGTest {
     
     @Test
-    public void testGetName() {
-        System.out.println("getName");
-        int threshold = RandomProvider.nextInt(16) + 4;
-        for (int i = 1; i < threshold; i++) {
-            Clipboard instance = new MockClipboard();
-            String expected = "Mock Clipboard #" + i;
-            String actual = instance.getName();
-            assertEquals(actual, expected);
-        }
+    public void testGetString() {
+        System.out.println("getString");
+        String expected = "EXAMPLE " + RandomProvider.nextInt();
+        TestImagePanel instance = new TestImagePanel(expected);
+        String actual = instance.getString();
+        assertEquals(actual, expected);
     }
     
 }
