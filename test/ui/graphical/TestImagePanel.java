@@ -32,16 +32,18 @@ import javax.swing.WindowConstants;
  */
 public class TestImagePanel extends JPanel {
     
+    private final String text;
+    
     String getString() {
-        return "SORRY, NOT IMPLEMENTED YET";
+        return this.text;
     }
     
     public TestImagePanel(char ch) {
-        //
+        this.text = "?";
     }
 
     public TestImagePanel(String s) {
-        //
+        this.text = s;
     }
     
 }
