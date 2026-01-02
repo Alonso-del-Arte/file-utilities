@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static org.testframe.api.Asserters.assertMinimum;
 import static org.testframe.api.Asserters.assertThrows;
 
 import static org.testng.Assert.*;
@@ -62,13 +63,13 @@ public class RandomProviderNGTest {
             assert number < bound : msg;
             numbers.add(number);
         }
-        int expected = capacity / 2;
+        int minimum = capacity / 2;
         int actual = numbers.size();
-        String msg = "Expected at least " + expected
+        String msg = "Expected at least " + minimum
                 + " distinct integers in the range 0 to " + (bound - 1)
                 + " out of " + capacity + ", got " + actual;
         System.out.println(msg);
-        assert actual >= expected : msg;
+        assertMinimum(minimum, actual, msg);
     }
     
     @Test
