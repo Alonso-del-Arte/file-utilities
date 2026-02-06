@@ -30,7 +30,7 @@ public class PlainTextRewriter {
     
     // TODO: Write tests for this
     static String rewrite(String s) {
-        return "SORRY, NOT IMPLEMENTED YET";
+        return s;
     }
     
     // TODO: Write tests for this
