@@ -52,7 +52,7 @@ public class PlainTextRewriterNGTest {
         char controlChar = (char) RandomProvider.nextInt(' ');
         value[replacementIndex] = controlChar;
         String s = new String(value);
-        char controlCharPicture = (char) (controlChar + 0x2400);
+        char controlCharPicture = (char) (controlChar + '\u2400');
         value[replacementIndex] = controlCharPicture;
         String expected = new String(value);
         String actual = PlainTextRewriter.rewrite(s);
