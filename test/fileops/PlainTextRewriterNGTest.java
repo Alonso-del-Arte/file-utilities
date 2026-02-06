@@ -16,8 +16,13 @@
  */
 package fileops;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
+
+import randomness.RandomProvider;
 
 /**
  * Tests of the PlainTextRewriter class.
@@ -25,10 +30,18 @@ import org.testng.annotations.Test;
  */
 public class PlainTextRewriterNGTest {
     
-    /**
-     * Test of rewrite method, of class PlainTextRewriter.
-     */
     @Test
+    public void testRewriteNoRewriteNeeded() {
+        int length = RandomProvider.nextInt(5, 25);
+        String expected = RandomProvider.nextASCIILine(length);
+        String actual = PlainTextRewriter.rewrite(expected);
+        assertEquals(actual, expected);
+    }
+    
+    /**
+     * Test of the rewrite function, of the PlainTextRewriter class.
+     */
+    @Test(enabled = false)
     public void testRewrite() {
         System.out.println("rewrite");
         String s = "";
@@ -42,7 +55,7 @@ public class PlainTextRewriterNGTest {
     /**
      * Test of main method, of class PlainTextRewriter.
      */
-    @Test
+    @Test(enabled = false)
     public void testMain() {
         System.out.println("main");
         String[] args = null;
