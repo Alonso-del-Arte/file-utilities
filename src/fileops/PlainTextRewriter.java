@@ -29,6 +29,11 @@ import java.io.FileNotFoundException;
 public class PlainTextRewriter {
     
     // TODO: Write tests for this
+    static char process(char ch) {
+        return '\u00BF';
+    }
+    
+    // TODO: Write tests for this
     static String rewrite(String s) {
         return s;
     }
