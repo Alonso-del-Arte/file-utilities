@@ -30,7 +30,7 @@ public class PlainTextRewriter {
     
     // TODO: Write tests for this
     static char process(char ch) {
-        return '\u00BF';
+        return ch;
     }
     
     // TODO: Write tests for this
