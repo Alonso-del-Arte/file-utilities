@@ -31,6 +31,13 @@ import randomness.RandomProvider;
 public class PlainTextRewriterNGTest {
     
     @Test
+    public void testProcessNoChangeNeeded() {
+        char expected = RandomProvider.nextASCIIChar();
+        char actual = PlainTextRewriter.process(expected);
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     public void testRewriteNoRewriteNeeded() {
         int length = RandomProvider.nextInt(5, 25);
         String expected = RandomProvider.nextASCIILine(length);
