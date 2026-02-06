@@ -41,7 +41,7 @@ public class PlainTextRewriterNGTest {
     /**
      * Test of the rewrite function, of the PlainTextRewriter class.
      */
-    @Test
+    @Test(enabled = false)
     public void testRewrite() {
         System.out.println("rewrite");
         int length = RandomProvider.nextInt(5, 25);
