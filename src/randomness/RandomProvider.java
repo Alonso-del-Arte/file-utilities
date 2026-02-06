@@ -35,9 +35,8 @@ public class RandomProvider {
         return RANDOM.nextInt(bound);
     }
     
-    // TODO: Write tests for this
     public static int nextInt(int origin, int bound) {
-        return Integer.MIN_VALUE;
+        return RANDOM.nextInt(origin, bound);
     }
     
     public static char nextASCIIChar() {
