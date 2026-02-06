@@ -29,10 +29,8 @@ import java.io.FileNotFoundException;
 public class PlainTextRewriter {
     
     static char process(char ch) {
-        if (ch < ' ') {
-            return (char) (ch + '\u2400');
-        }
-        return ch;
+        char adjustment = (ch < ' ') ? '\u2400' : '\u0000';
+        return (char) (ch + adjustment);
     }
     
     // TODO: Write tests for this
