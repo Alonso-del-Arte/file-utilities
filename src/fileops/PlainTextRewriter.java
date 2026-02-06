@@ -33,9 +33,13 @@ public class PlainTextRewriter {
         return (char) (ch + adjustment);
     }
     
-    // TODO: Write tests for this
     static String rewrite(String s) {
-        return s;
+        char[] value = s.toCharArray();
+        int len = value.length;
+        for (int i = 0; i < len; i++) {
+            value[i] = process(value[i]);
+        }
+        return new String(value);
     }
     
     // TODO: Write tests for this
