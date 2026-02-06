@@ -41,15 +41,24 @@ public class PlainTextRewriterNGTest {
     /**
      * Test of the rewrite function, of the PlainTextRewriter class.
      */
-    @Test(enabled = false)
+    @Test
     public void testRewrite() {
         System.out.println("rewrite");
-        String s = "";
-        String expResult = "";
-        String result = PlainTextRewriter.rewrite(s);
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int length = RandomProvider.nextInt(5, 25);
+        String preliminary = RandomProvider.nextASCIILine(length);
+        char[] value = preliminary.toCharArray();
+        int bound = value.length;
+        int replacementIndex = RandomProvider.nextInt(bound);
+        char controlChar = (char) RandomProvider.nextInt(' ');
+        value[replacementIndex] = controlChar;
+        String s = new String(value);
+        char controlCharPicture = (char) (controlChar + 0x2400);
+        value[replacementIndex] = controlCharPicture;
+        String expected = new String(value);
+        String actual = PlainTextRewriter.rewrite(s);
+        String message = "Character '" + controlChar 
+                + "' should be replaced with '" + controlCharPicture + "'";
+        assertEquals(actual, expected, message);
     }
 
     /**
