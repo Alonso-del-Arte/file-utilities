@@ -37,6 +37,19 @@ public class PlainTextRewriterNGTest {
         assertEquals(actual, expected);
     }
     
+    /**
+     * Test of the process function, of the PlainTextRewriter class.
+     */
+    @Test
+    public void testProcess() {
+        System.out.println("process");
+        for (char ch = '\u0000'; ch < ' '; ch++) {
+            char expected = (char) (ch + '\u2400');
+            char actual = PlainTextRewriter.process(ch);
+            assertEquals(actual, expected);
+        }
+    }
+    
     @Test
     public void testRewriteNoRewriteNeeded() {
         int length = RandomProvider.nextInt(5, 25);
