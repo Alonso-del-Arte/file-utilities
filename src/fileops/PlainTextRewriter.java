@@ -43,6 +43,11 @@ public class PlainTextRewriter {
     }
     
     // TODO: Write tests for this
+    public void rewriteTo(File directory) {
+        //
+    }
+    
+    // TODO: Write tests for this
     public PlainTextRewriter(File file) {
         //
     }
